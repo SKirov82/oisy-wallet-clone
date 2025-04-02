@@ -1,0 +1,143 @@
+@use '../theme/base-colors' as *;
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+}
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+progress {
+	vertical-align: baseline;
+}
+[hidden],
+template {
+	display: none;
+}
+
+a,
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	color: inherit;
+}
+a {
+	color: inherit;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	text-decoration: underline;
+	cursor: pointer;
+	word-break: break-word;
+}
+a:not(.unstyled):active,
+a:not(.unstyled):hover {
+	color: var(--color-background-brand-primary);
+}
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+b,
+strong {
+	font-weight: var(--font-weight-bold);
+}
+img {
+	border-style: none;
+	max-width: 100%;
+	padding: 0;
+	margin: 0;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+	margin: 0;
+	white-space: pre-wrap;
+}
+textarea {
+	overflow: auto;
+}
+form {
+	padding: 0;
+	margin: 0;
+}
+ul {
+	list-style-type: square;
+}
+p {
+	padding: 0;
+	margin: 0 0 var(--padding-2_5x);
+}
+figure {
+	padding: 0;
+}
+figcaption {
+	margin: 0.45rem 0.75rem;
+	text-align: center;
+	outline: none;
+}
+
+::selection {
+	background: var(--color-background-brand-subtle-20);
+}
+
+::-moz-selection {
+	background: var(--color-background-brand-subtle-20);
+}
+
+// TODO: set the scrollbar style for Firefox too. Right now it is not ideal since the modifiable properties are limited and they go in conflict with what we set (https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling)
+::-webkit-scrollbar-thumb {
+	border: 1px solid #{$a-white-40};
+	background: #{$a-dark-20};
+	border-radius: 16px;
+
+	&:hover {
+		border-color: #{$a-white-70};
+		background: #{$a-dark-30};
+	}
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 0;
+	background: none;
+}
+
+::-webkit-scrollbar {
+	width: 0.45rem;
+}

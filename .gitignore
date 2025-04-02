@@ -1,0 +1,63 @@
+# Various IDEs and Editors
+.vscode/
+.idea/
+**/*~
+
+# Mac OSX temporary files
+.DS_Store
+**/.DS_Store
+
+# dfx temporary files
+.dfx/
+
+# bitcoin
+bitcoin-core/
+bitcoin*.gz
+
+# rust and downloaded wasm|did files
+target/
+
+# files used by docker buildx
+in/
+
+# files created by docker buildx
+out/
+
+# frontend code
+node_modules/
+build/
+.svelte-kit/
+package/
+
+# environment variables
+.env
+.env.*
+!.env.example
+!.env.test
+!.env.e2e
+
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+internet_identity.wasm
+internet_identity.did
+
+codes.txt
+
+backend.wasm.gz
+ic-btc-canister.wasm.gz
+backend-v*.wasm.gz
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+pocket-ic
+
+coverage/
+
+/scripts/build.ic-domains.test.actual.*
+
+# Frontend reproducibility script output folder
+tmp
+.qodo
+/cycles-ledger.wasm.gz

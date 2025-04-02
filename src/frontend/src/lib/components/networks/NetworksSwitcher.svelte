@@ -1,0 +1,68 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { SUPPORTED_NETWORKS } from '$env/networks/networks.env';
+	import IconManage from '$lib/components/icons/lucide/IconManage.svelte';
+	import NetworkSwitcherList from '$lib/components/networks/NetworkSwitcherList.svelte';
+	import NetworkSwitcherLogo from '$lib/components/networks/NetworkSwitcherLogo.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
+	import Dropdown from '$lib/components/ui/Dropdown.svelte';
+	import { NETWORKS_SWITCHER_DROPDOWN } from '$lib/constants/test-ids.constants';
+	import { selectedNetwork, networkId } from '$lib/derived/network.derived';
+	import { networksMainnets, networksTestnets } from '$lib/derived/networks.derived';
+	import { SettingsModalType } from '$lib/enums/settings-modal-types';
+	import { i18n } from '$lib/stores/i18n.store';
+	import { modalStore } from '$lib/stores/modal.store';
+	import type { NetworkId } from '$lib/types/network';
+	import { replacePlaceholders } from '$lib/utils/i18n.utils';
+	import { gotoReplaceRoot, isRouteTransactions, switchNetwork } from '$lib/utils/nav.utils';
+
+	export let disabled = false;
+
+	let dropdown: Dropdown | undefined;
+
+	const onNetworkSelect = async ({ detail: networkId }: CustomEvent<NetworkId>) => {
+		await switchNetwork(networkId);
+
+		if (isRouteTransactions($page)) {
+			await gotoReplaceRoot();
+		}
+
+		dropdown?.close();
+	};
+</script>
+
+<Dropdown
+	bind:this={dropdown}
+	ariaLabel={$i18n.networks.title}
+	testId={NETWORKS_SWITCHER_DROPDOWN}
+	{disabled}
+	asModalOnMobile
+>
+	<NetworkSwitcherLogo network={$selectedNetwork} />
+
+	<span class="hidden md:block">{$selectedNetwork?.name ?? $i18n.networks.chain_fusion}</span>
+
+	<svelte:fragment slot="title">{$i18n.networks.filter}</svelte:fragment>
+
+	<div slot="items">
+		<NetworkSwitcherList on:icSelected={onNetworkSelect} selectedNetworkId={$networkId} />
+
+		<div class="mb-2 ml-2 mt-5 flex flex-row justify-between text-nowrap">
+			<span class="flex">
+				<Button
+					link
+					on:click={() => {
+						dropdown?.close();
+						modalStore.openSettings(SettingsModalType.ENABLED_NETWORKS);
+					}}><IconManage />{$i18n.networks.manage}</Button
+				>
+			</span>
+			<span class="ml-4 mr-2 flex text-nowrap text-right text-base">
+				{replacePlaceholders($i18n.networks.number_of_enabled, {
+					$numNetworksEnabled: `${$networksMainnets.length + $networksTestnets.length}`,
+					$numNetworksTotal: `${SUPPORTED_NETWORKS.length}`
+				})}</span
+			>
+		</div>
+	</div>
+</Dropdown>

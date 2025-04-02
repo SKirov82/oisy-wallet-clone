@@ -1,0 +1,80 @@
+/* Font sizing source: https://type-scale.com/ */
+
+html {
+	font-size: 100%;
+} /*16px*/
+
+body {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	font-weight: var(--font-weight-normal);
+	line-height: round(var(--line-height-standard), 1px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: var(--font-weight-bold);
+	line-height: round(var(--line-height-title), 1px);
+}
+
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+:root {
+	--font-size-h1: round(1.802rem, 1px);
+	--font-size-h2: round(1.602rem, 1px);
+	--font-size-h3: round(1.424rem, 1px);
+	--font-size-h4: round(1.266rem, 1px);
+	--font-size-h5: round(1.125rem, 1px);
+	--font-size-small: round(0.889rem, 1px);
+	--font-size-very-small: round(0.79rem, 1px);
+	--font-size-ultra-small: round(0.6rem, 1px);
+
+	--line-height-small: 110%;
+	--line-height-title: 130%;
+	--line-height-standard: 150%;
+
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: var(--font-weight-bold);
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+}
+
+h4 {
+	font-size: var(--font-size-h4);
+}
+
+h5 {
+	font-size: var(--font-size-h5);
+}
+
+small,
+figcaption {
+	font-size: var(--font-size-small);
+}

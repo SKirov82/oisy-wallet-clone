@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://oisy.com/sitemap.xml
+Host: https://oisy.com

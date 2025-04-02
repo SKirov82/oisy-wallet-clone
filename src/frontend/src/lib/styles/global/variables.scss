@@ -1,0 +1,25 @@
+:root {
+	--z-index: 10;
+
+	--padding-0_25x: round(calc(var(--padding) / 4), 1px);
+	--padding-0_5x: round(calc(var(--padding) / 2), 1px);
+	--padding-0_75x: round(calc((var(--padding) * 2) / 3), 1px);
+	--padding: round(0.45rem, 1px);
+	--padding-1_25x: round(calc(var(--padding) * 1.25), 1px);
+	--padding-1_5x: round(calc(var(--padding) * 1.5), 1px);
+	--padding-2x: round(calc(var(--padding) * 2), 1px);
+	--padding-2_5x: round(calc(var(--padding) * 2.5), 1px);
+	--padding-3x: round(calc(var(--padding) * 3), 1px);
+	--padding-4x: round(calc(var(--padding) * 4), 1px);
+	--padding-6x: round(calc(var(--padding) * 6), 1px);
+	--padding-8x: round(calc(var(--padding) * 8), 1px);
+	--padding-24x: round(calc(var(--padding) * 24), 1px);
+
+	--border-radius-xs: calc(var(--border-radius-sm) * 0.5);
+	--border-radius-sm: 8px;
+	--border-radius-sm-1_5x: calc(var(--border-radius-sm) * 1.5);
+	--border-radius-md: calc(var(--border-radius-sm) * 2);
+	--border-radius-lg: calc(var(--border-radius-sm) * 4);
+
+	--backdrop: var(--color-background-modal-overlay);
+}
